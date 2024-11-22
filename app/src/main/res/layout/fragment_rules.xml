@@ -16,4 +16,27 @@
         android:textSize="30sp"
         android:layout_marginTop="20dp"
         android:layout_marginStart="120dp"/>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:gravity="center"
+        android:textStyle="italic"
+        android:textColor="@color/lightGreen"
+        android:textSize="20sp"
+        android:text="@string/guess_rules" />
+
+    <Button
+        android:id="@+id/backbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="250dp"
+        android:layout_gravity="center"
+        android:backgroundTint="@color/lightGreen"
+        android:textColor="@color/forestGreen"
+        android:text="@string/back" />
 </FrameLayout>
