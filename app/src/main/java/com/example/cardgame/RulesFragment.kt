@@ -1,10 +1,12 @@
 package com.example.cardgame
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -34,8 +36,15 @@ class RulesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_rules,container,false)
+        val backBtn: Button = view.findViewById(R.id.backbtn)
+        backBtn.setOnClickListener {
+            val intent = Intent(requireActivity(),GuessCardActivity::class.java)
+            startActivity(intent)
+        }
         return view
     }
+
+
 
     companion object {
         /**
