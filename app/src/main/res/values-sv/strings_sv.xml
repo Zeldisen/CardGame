@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CardGame</string>
+    <string name="welcome_to_cardgame">Välkommen till KortSpel!</string>
+    <string name="guesscardgame">Gissa Kortet</string>
+    <string name="quit">Avsluta</string>
+    <string name="guess_card_game">Gissa kortet</string>
+    <string name="_1_players">1 Spelare</string>
+    <string name="_2_players">2 Spelare</string>
+    <string name="rules">Spelregler</string>
+    <string name="quit2">Avsluta</string>
+</resources>
