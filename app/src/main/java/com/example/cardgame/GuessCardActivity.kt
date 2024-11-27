@@ -19,22 +19,23 @@ class GuessCardActivity : AppCompatActivity() {
             insets
         }
         val rulesFragment = RulesFragment()
-        val P1Btn = findViewById<Button>(R.id.btnPlayer1)
-        val p2Btn = findViewById<Button>(R.id.btnPlayer2)
+        val player1Btn = findViewById<Button>(R.id.btnPlayer1)
+        val player2Btn = findViewById<Button>(R.id.btnPlayer2)
         val rulesBtn = findViewById<Button>(R.id.btnRules)
         val finishbtn= findViewById<Button>(R.id.btnQuit)
 
-        P1Btn.setOnClickListener {
+        player1Btn.setOnClickListener {
             val intent = Intent(this,GameActivity::class.java)
             startActivity(intent)
         }
 
-        p2Btn.setOnClickListener {
+        player2Btn.setOnClickListener {
             val intent = Intent(this, GameActivity::class.java)
             startActivity(intent)
         }
         finishbtn.setOnClickListener {
-            finish()
+            val intent = Intent(this,MainActivity::class.java)
+            startActivity(intent)
         }
         rulesBtn.setOnClickListener {
             val transaction = supportFragmentManager.beginTransaction()

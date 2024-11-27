@@ -21,9 +21,9 @@ class MainActivity : AppCompatActivity() {
         val finishBtn = findViewById<Button>(R.id.button2)
         val playGuessCardBtn = findViewById<Button>(R.id.button)
 
-        finishBtn.setOnClickListener {
-            finish()
-        }
+        finishBtn.setOnClickListener {   // hamnar i onStart() och onStop() och kan om användaren vill återuppta hamna i onRestart()
+            moveTaskToBack(true) // låter appen ligga i bakgrunden efter att den "stängs ner" istället för finish() eller
+        }                                   // finischAffinity()
         playGuessCardBtn.setOnClickListener {
             val intent = Intent(this,GuessCardActivity::class.java)
             startActivity(intent)
