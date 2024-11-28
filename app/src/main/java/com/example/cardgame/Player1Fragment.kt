@@ -5,11 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.os.BundleCompat.getParcelable
+import com.example.cardgame.databinding.FragmentPlayer1Binding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -23,8 +22,9 @@ private const val ARG_PARAM2 = "param2"
  */
 class Player1Fragment : Fragment() {
     // TODO: Rename and change types of parameters
-
-    private lateinit var deck: Deck
+    private var _binding:FragmentPlayer1Binding?=null
+    private val binding get() = _binding!!
+        private lateinit var deck: Deck
     private var param1: String? = null
     private var param2: String? = null
 
@@ -37,12 +37,14 @@ class Player1Fragment : Fragment() {
     }
 
     override fun onCreateView(
+
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        _binding = FragmentPlayer1Binding.inflate(inflater,container,false)
         val view = inflater.inflate(R.layout.fragment_player1,container,false)
         val playerGuess = view.findViewById<EditText>(R.id.yourGuess_et)
-        val guessBtn = view.findViewById<Button>(R.id.guessButton)
+
         val showCard = view.findViewById<ImageView>(R.id.show_card)
         val pointView = view.findViewById<TextView>(R.id.tv_showPoints)
         val hihger = 0
@@ -50,12 +52,17 @@ class Player1Fragment : Fragment() {
         deck = (activity as GameActivity).deck
         @Suppress("DEPRECATION")
         val card:Card? = arguments?.getParcelable("selectedCard")
-        guessBtn.setOnClickListener {
+       binding.guessButton.setOnClickListener {
             //showCard.setImageResource(card?.value? ,card.imageResId?)
         }
 
 
-        return view
+        return binding.root
+    }
+
+    override fun onDestroyView() { // added to avoid memoryleks
+        super.onDestroyView()
+        _binding = null
     }
 
     companion object {

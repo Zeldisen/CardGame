@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import com.example.cardgame.databinding.FragmentRulesBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -19,7 +20,9 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class RulesFragment : Fragment() {
-    // TODO: Rename and change types of parameters
+    private var _binding: FragmentRulesBinding?=null
+    private val binding get() = _binding!!
+
     private var param1: String? = null
     private var param2: String? = null
 
@@ -35,15 +38,19 @@ class RulesFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_rules,container,false)
-        val backBtn: Button = view.findViewById(R.id.backbtn)
-        backBtn.setOnClickListener {
+        _binding = FragmentRulesBinding.inflate(inflater,container,false)
+
+
+        binding.backbtn.setOnClickListener {
             val intent = Intent(requireActivity(),GuessCardActivity::class.java)
             startActivity(intent)
         }
-        return view
+        return binding.root
     }
-
+    override fun onDestroyView() { // added to avoid memoryleks
+        super.onDestroyView()
+        _binding = null
+    }
 
 
     companion object {
