@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/forestGreen"
+    tools:context=".Player1Fragment">
+
+
+    <TextView
+        android:id="@+id/tv_player1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="One Player Game"
+        android:textColor="@color/lightGreen"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_gravity="center_horizontal"/>
+
+    <ImageView
+        android:id="@+id/pack_backside"
+        android:layout_width="100dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/cardsbackside" />
+
+    <ImageView
+        android:id="@+id/show_card"
+        android:layout_width="100dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="220dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/clover3" />
+
+    <EditText
+        android:id="@+id/yourGuess_et"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="370dp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:ems="10"
+        android:inputType="text"
+        android:text="write higher or lower"
+        android:textColor="@color/lightGreen"
+        />
+
+    <Button
+        android:id="@+id/guessButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="420dp"
+        android:layout_gravity="center_horizontal"
+        android:text="Guess"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textColor="@color/forestGreen"
+        android:backgroundTint="@color/lightGreen"/>
+
+    <Button
+        android:id="@+id/p1_back_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="600dp"
+        android:layout_gravity="center_horizontal"
+        android:text="Go back"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textColor="@color/forestGreen"
+        android:backgroundTint="@color/lightGreen"/>
+
+    <TextView
+        android:id="@+id/tv_points"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="500dp"
+        app:layout_constraintBottom_toBottomOf="@id/guessButton"
+        android:text="Points:"
+        android:textColor="@color/lightGreen"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/tv_showPoints"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="500dp"
+        android:layout_marginStart="200sp"
+        android:text="TextView"
+        android:textColor="@color/lightGreen"
+        android:textSize="20sp" />
+</FrameLayout>
