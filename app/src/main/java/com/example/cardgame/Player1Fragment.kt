@@ -51,7 +51,7 @@ class Player1Fragment : Fragment() {
         @Suppress("DEPRECATION")
         val card:Card? = arguments?.getParcelable("selectedCard")
         guessBtn.setOnClickListener {
-            showCard.setImageResource(card?.value? ,card.imageResId?)
+            //showCard.setImageResource(card?.value? ,card.imageResId?)
         }
 
 
