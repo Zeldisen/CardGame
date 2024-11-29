@@ -5,16 +5,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.os.BundleCompat.getParcelable
+import androidx.activity.viewModels
+import androidx.lifecycle.ViewModelProvider
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+
+import com.example.cardgame.databinding.FragmentPlayer1Binding
+
+
 
 /**
  * A simple [Fragment] subclass.
@@ -22,59 +22,42 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class Player1Fragment : Fragment() {
-    // TODO: Rename and change types of parameters
 
-    private lateinit var deck: Deck
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private var _binding:FragmentPlayer1Binding?=null
+    private val binding get() = _binding!!
+    lateinit var vm: SharedViewModel
+
 
     override fun onCreateView(
+
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_player1,container,false)
-        val playerGuess = view.findViewById<EditText>(R.id.yourGuess_et)
-        val guessBtn = view.findViewById<Button>(R.id.guessButton)
-        val showCard = view.findViewById<ImageView>(R.id.show_card)
-        val pointView = view.findViewById<TextView>(R.id.tv_showPoints)
+        _binding = FragmentPlayer1Binding.inflate(inflater,container,false)
+        vm = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
+
         val hihger = 0
         val points = 0
-        deck = (activity as GameActivity).deck
-        @Suppress("DEPRECATION")
-        val card:Card? = arguments?.getParcelable("selectedCard")
-        guessBtn.setOnClickListener {
-            //showCard.setImageResource(card?.value? ,card.imageResId?)
+
+       binding.guessButton.setOnClickListener {
+           vm.drawRandomCard()
+           vm.selectedCard.observe(viewLifecycleOwner) { selectedCard ->
+               // Hämta och visa slumpmässigt kort
+               if (selectedCard != null) {
+                   binding.showCard.setImageResource(selectedCard.imageResId)
+               }
+           }
         }
 
 
-        return view
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Player1Fragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Player1Fragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onDestroyView() { // added to avoid memoryleks
+        super.onDestroyView()
+        _binding = null
     }
+
+
 }

@@ -5,12 +5,13 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.ViewModelProvider
 import com.example.cardgame.databinding.ActivityGameBinding
 
 
 class GameActivity : AppCompatActivity() {
-    lateinit var deck :Deck
-    val bundle = Bundle()
+    lateinit var vm: SharedViewModel
+    //val bundle = Bundle()
     lateinit var binding: ActivityGameBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,10 +23,9 @@ class GameActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        deck = Deck()
-        val randomCard = deck.showRandomCard()
+        vm = ViewModelProvider(this).get(SharedViewModel::class.java)
+        vm.drawRandomCard()
 
-        bundle.putParcelable("selectedCard",randomCard)
 
 
         val player1Fragment = Player1Fragment()
