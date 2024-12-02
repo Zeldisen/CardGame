@@ -27,9 +27,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="120dp"
-            android:backgroundTint="@color/lightGreen"
+            android:backgroundTint="@color/forestGreen"
             android:text="@string/start_game"
-            android:textColor="@color/forestGreen"
+            android:textColor="@color/lightGreen"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -52,11 +53,22 @@
             android:layout_width="113dp"
             android:layout_height="137dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="200dp"
+            android:layout_marginTop="300dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/startGameButton"
             app:srcCompat="@drawable/cardsbackside" />
+
+        <Button
+            android:id="@+id/start_game2btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="180dp"
+            android:textSize="20sp"
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="@color/forestGreen"
+            android:textColor="@color/lightGreen"
+            android:text="@string/startgame2" />
 
 
     </FrameLayout>

@@ -8,6 +8,14 @@
     tools:context=".Player1Fragment">
 
 
+    <ImageButton
+        android:id="@+id/higherButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="380dp"
+        android:layout_marginStart="210dp"
+        android:src="@drawable/baseline_arrow_upward_24" />
+
     <TextView
         android:id="@+id/tv_player1"
         android:layout_width="wrap_content"
@@ -35,24 +43,13 @@
         android:layout_gravity="center_horizontal"
         android:src="@drawable/clover3" />
 
-    <EditText
-        android:id="@+id/yourGuess_et"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="370dp"
-        android:layout_gravity="center_horizontal"
-        android:gravity="center"
-        android:ems="10"
-        android:inputType="text"
-        android:text="write higher or lower"
-        android:textColor="@color/lightGreen"
-        />
+
 
     <Button
         android:id="@+id/guessButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="420dp"
+        android:layout_marginTop="450dp"
         android:layout_gravity="center_horizontal"
         android:text="Guess"
         android:textStyle="bold"
@@ -89,7 +86,35 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="500dp"
         android:layout_marginStart="200sp"
-        android:text="TextView"
+        android:text=""
         android:textColor="@color/lightGreen"
         android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tvWrongGuess"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="540dp"
+        android:textColor="@color/lightGreen"
+        android:textSize="20sp"
+        android:text="Wrong guessed times:" />
+
+    <TextView
+        android:id="@+id/tvWrongCounter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="280dp"
+        android:layout_marginTop="540dp"
+        android:textColor="@color/lightGreen"
+        android:textSize="20sp"
+        android:text="" />
+
+    <ImageButton
+        android:id="@+id/lowerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="380dp"
+        android:layout_marginStart="150dp"
+        android:src="@drawable/baseline_arrow_downward_24" />
 </FrameLayout>

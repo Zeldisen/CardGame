@@ -26,10 +26,7 @@ class GameActivity : AppCompatActivity() {
         vm = ViewModelProvider(this).get(SharedViewModel::class.java)
         vm.drawRandomCard()
 
-
-
         val player1Fragment = Player1Fragment()
-
 
         binding.startGameButton.setOnClickListener {
             val transaction = supportFragmentManager.beginTransaction()
