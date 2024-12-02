@@ -12,6 +12,7 @@
     <string name="game_rules">Spelregler</string>
     <string name="guess_rules">Gissa om nästa kort är högre eller lägre än kortet som visas på boret. Om du gissat rätt får du en poäng. Om du gissat fel på du inget poäng. Men det kommer visas hur många gånger du gissat fel. Högst poäng vinner.</string>
     <string name="back">Tillbaka</string>
-    <string name="start_game">Starta spelet</string>
+    <string name="start_game">Starta spel för en spelare</string>
+    <string name="startgame2">Starta spel för två spelare</string>
     <string name="goback">Tillbaka</string>
 </resources>

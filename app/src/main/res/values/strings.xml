@@ -11,8 +11,8 @@
     <string name="game_rules">Game Rules</string>
     <string name="guess_rules">You have to guess if the next card is higher or lower than the card on the table. If you Guess correct you get one point. If you guess wrong you get no points. it will show how many times you have guessed incorrect. The player with the Highest points wins.</string>
     <string name="back">Back</string>
-    <string name="start_game">Start Game</string>
+    <string name="start_game">Start single player Game</string>
     <string name="goback">Back</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="startgame2">Start 2 player game</string>
+
 </resources>

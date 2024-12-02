@@ -1,6 +1,8 @@
 package com.example.cardgame
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -24,7 +26,7 @@ import com.example.cardgame.databinding.FragmentPlayer1Binding
 class Player1Fragment : Fragment() {
 
 
-    private var _binding:FragmentPlayer1Binding?=null
+    private var _binding: FragmentPlayer1Binding? = null
     private val binding get() = _binding!!
     lateinit var vm: SharedViewModel
 
@@ -34,30 +36,69 @@ class Player1Fragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentPlayer1Binding.inflate(inflater,container,false)
+        _binding = FragmentPlayer1Binding.inflate(inflater, container, false)
         vm = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
 
-        val hihger = 0
-        val points = 0
+        var previusCard = -1
+        var currentCard = 1
+        var wrongcounter = 0
+        var points = 0
+        var isHigherGuess = false
 
-       binding.guessButton.setOnClickListener {
-           vm.drawRandomCard()
-           vm.selectedCard.observe(viewLifecycleOwner) { selectedCard ->
-               // Hämta och visa slumpmässigt kort
-               if (selectedCard != null) {
-                   binding.showCard.setImageResource(selectedCard.imageResId)
-               }
-           }
+        fun updateUiForGuess(isHigherGuess: Boolean, currentCard: Int, previusCard: Int) {
+            if (isHigherGuess && currentCard > previusCard ||
+                !isHigherGuess && currentCard < previusCard) {
+                points++
+                Log.d("Debug", "Points increased: $points")
+                binding.tvShowPoints.text = points.toString()
+            } else {
+                wrongcounter++
+                Log.d("Debug", "Wrong counter increased: $wrongcounter")
+                binding.tvWrongCounter.text = wrongcounter.toString()
+            }
+
+        }
+
+        vm.drawRandomCard()  // drar ett första slumpmässigt kort
+        vm.selectedCard.observe(viewLifecycleOwner) { selectedCard ->
+            // Hämta och visa slumpmässigt kort
+            if (selectedCard != null) {
+                binding.showCard.setImageResource(selectedCard.imageResId)
+                currentCard = selectedCard.value
+                if (previusCard != -1) { // Kontrollera bara om det redan finns ett tidigare kort
+                    updateUiForGuess(isHigherGuess, currentCard, previusCard)
+                }
+                previusCard = currentCard
+            }
         }
 
 
-        return binding.root
+            binding.higherButton.setOnClickListener {
+                if (previusCard == -1) return@setOnClickListener
+                isHigherGuess = true
+                vm.drawRandomCard()
+            }
+            binding.lowerButton.setOnClickListener {
+                if (previusCard == -1) return@setOnClickListener
+                isHigherGuess = false
+                vm.drawRandomCard()
+                }
+
+
+
+            binding.p1BackBtn.setOnClickListener {
+                val intent = Intent(requireActivity(), GameActivity::class.java)
+                startActivity(intent)
+            }
+
+
+            return binding.root
+
+        }
+        override fun onDestroyView() { // added to avoid memoryleks
+            super.onDestroyView()
+            _binding = null
+        }
+
+
     }
-
-    override fun onDestroyView() { // added to avoid memoryleks
-        super.onDestroyView()
-        _binding = null
-    }
-
-
-}
