@@ -26,6 +26,9 @@ class GameActivity : AppCompatActivity() {
         vm = ViewModelProvider(this).get(SharedViewModel::class.java)
         vm.drawRandomCardPlayer1()
         vm.drawRandomCardPlayer2()
+        vm.resetDeck()
+        vm.isDeckEmpty()
+
 
         val player1Fragment = Player1Fragment()
         val player2Fragment = Player2Fragment()

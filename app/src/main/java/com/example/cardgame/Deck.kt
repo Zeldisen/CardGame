@@ -1,5 +1,6 @@
 package com.example.cardgame
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 
@@ -8,6 +9,9 @@ class Deck {
    private val _cards: MutableLiveData<MutableList<Card>> = MutableLiveData(mutableListOf())
     val cards: LiveData<MutableList<Card>> get() = _cards
     val drawnCards = mutableListOf<Card>()
+    private val _isDeckEmpty = MutableLiveData(false)
+    val isDeckEmpty: LiveData<Boolean> get() = _isDeckEmpty
+
     init{
         createDeck()
     }
@@ -68,11 +72,30 @@ class Deck {
 
 
     fun drawRandomCard(): Card? {
-        val avalibleCards = _cards.value?.filter {it !in drawnCards}
-        val card = avalibleCards?.randomOrNull()
-        if( card != null){
+        val availableCards = _cards.value?.filter { it !in drawnCards }
+        val card = availableCards?.randomOrNull()
+        if (card != null) {
             drawnCards.add(card)
         }
+        // Uppdatera LiveData när kort dras
+        _isDeckEmpty.value = availableCards?.isEmpty() == true
+        Log.d("DeckDebug", "Available cards: ${availableCards?.size}")
+        Log.d("DeckDebug", "Drawn cards: ${drawnCards.size}")
+        Log.d("DeckDebug", "Is deck empty: ${_isDeckEmpty.value}")
         return card
+    }
+    fun resetDeck(){
+
+        _cards.value = mutableListOf() // Rensa kortleken och meddela LiveData
+        drawnCards.clear()
+        createDeck()
+        _isDeckEmpty.value = false // Återställ tillstånd
+        Log.d("DeckDebug", "Deck reset: ${_cards.value?.size} cards available")
+
+    }
+    fun checkDeckIsEmpty():Boolean{
+        Log.d("DeckCheck", "cards.value is null or empty: ${cards.value.isNullOrEmpty()}")
+        return cards.value.isNullOrEmpty()
+
     }
 }

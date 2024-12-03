@@ -49,6 +49,26 @@ class Player2Fragment : Fragment() {
         var isHigherGuess = false
         var isHigherGuess2 = false
 
+        fun checkwinner(){
+            if (vm.isDeckEmpty.value == true) {  // Kontrollera om kortleken är tom
+                val winnerMessage = when {
+                    points1 > points2 -> "Player 1 wins!"
+                    points1 < points2 -> "Player 2 wins!"
+                    else -> "It's a tie!"
+                }
+                Toast.makeText(requireContext(), winnerMessage, Toast.LENGTH_LONG).show()
+
+                // Gör knappar inaktiva tills spelet återställs
+                binding.imageButtonHigher.isEnabled = false
+                binding.imageButtonLower.isEnabled = false
+                binding.imageButtonHigher2.isEnabled = false
+                binding.imageButtonLower2.isEnabled = false
+
+                // Uppdatera UI
+                binding.tvPlayerTurn.text = "Game Over! Play again to restart."
+            }
+        }
+
         fun upDateTurnUI(){
             if (currentPlayer == 1){
                 binding.imageButtonHigher2.isEnabled = false
@@ -89,6 +109,12 @@ class Player2Fragment : Fragment() {
             }
 
         }
+        vm.isDeckEmpty.observe(viewLifecycleOwner) { isEmpty ->
+            if (isEmpty) {
+                Log.d("CheckWinner", "Deck is empty, calling checkwinner()")
+                checkwinner() // Kallar checkwinner när kortleken är tom
+            }
+        }
         vm.drawRandomCardPlayer1()  // drar ett första slumpmässigt kort i hög 1
         vm.selectedCard1.observe(viewLifecycleOwner) { selectedCard ->
             // Hämta och visa slumpmässigt kort
@@ -99,7 +125,10 @@ class Player2Fragment : Fragment() {
                     updateUiForGuess(isHigherGuess, currentCard1, previusCard1)
                 }
                 previusCard1 = currentCard1
+
             }
+            //checkwinner()
+            Log.d("CheckWinner", "checkWinner called")
         }
         vm.drawRandomCardPlayer2()  // drar ett första slumpmässigt kort i hög 2
         vm.selectedCard2.observe(viewLifecycleOwner) { selectedCard ->
@@ -111,7 +140,10 @@ class Player2Fragment : Fragment() {
                     updateUiForGuess2(isHigherGuess2, currentCard2, previusCard2)
                 }
                 previusCard2 = currentCard2
+
             }
+           // checkwinner()
+            Log.d("CheckWinner", "checkWinner called")
         }
 
         binding.imageButtonHigher.setOnClickListener {
@@ -121,7 +153,8 @@ class Player2Fragment : Fragment() {
             currentPlayer=2
             upDateTurnUI()
             binding.tvPlayerTurn.text = player2Turn
-            Toast.makeText(requireContext(), "Player 2 Turn", Toast.LENGTH_LONG).show()
+            checkwinner()
+           // Toast.makeText(requireContext(), "Player 2 Turn", Toast.LENGTH_SHORT).show()
         }
         binding.imageButtonLower.setOnClickListener {
             if (previusCard1 == -1) return@setOnClickListener
@@ -130,7 +163,8 @@ class Player2Fragment : Fragment() {
             currentPlayer=2
             upDateTurnUI()
             binding.tvPlayerTurn.text = player2Turn
-            Toast.makeText(requireContext(), "Player 2 Turn", Toast.LENGTH_LONG).show()
+            checkwinner()
+            //Toast.makeText(requireContext(), "Player 2 Turn", Toast.LENGTH_SHORT).show()
         }
         binding.imageButtonHigher2.setOnClickListener {
             if (previusCard2 == -1) return@setOnClickListener
@@ -139,18 +173,49 @@ class Player2Fragment : Fragment() {
             currentPlayer = 1
             upDateTurnUI()
             binding.tvPlayerTurn.text = player1Turn
-            Toast.makeText(requireContext(), "Player 1 Turn", Toast.LENGTH_LONG).show()
+            checkwinner()
+           // Toast.makeText(requireContext(), "Player 1 Turn", Toast.LENGTH_SHORT).show()
         }
         binding.imageButtonLower2.setOnClickListener {
+
             if (previusCard2 == -1) return@setOnClickListener
             isHigherGuess2 = false
             vm.drawRandomCardPlayer2()
             currentPlayer = 1
             upDateTurnUI()
             binding.tvPlayerTurn.text = player1Turn
-            Toast.makeText(requireContext(), "Player 1 Turn", Toast.LENGTH_LONG).show()
-        }
+            checkwinner()
 
+           // Toast.makeText(requireContext(), "Player 1 Turn", Toast.LENGTH_SHORT).show()
+        }
+        binding.playAgainBtn.setOnClickListener {
+            vm.resetDeck()
+            points1=0
+            points2=0
+            wrongcounter1=0
+            wrongcounter2=0
+            previusCard1 = -1
+            previusCard2 = -1
+            currentCard1 = 1
+            currentCard2 = 1
+            currentPlayer = 1
+            upDateTurnUI()
+            binding.p1ShowPoints.text = points1.toString()
+            binding.p2ShowPoints.text = points2.toString()
+            binding.p1WrongGuess.text = wrongcounter1.toString()
+            binding.p2WrongGuess.text = wrongcounter2.toString()
+            binding.tvPlayerTurn.text = "Player 1 turn"
+
+            binding.imageButtonHigher.isEnabled = true
+            binding.imageButtonLower.isEnabled = true
+            binding.imageButtonHigher2.isEnabled = true
+            binding.imageButtonLower2.isEnabled = true
+            vm.drawRandomCardPlayer1()
+            vm.drawRandomCardPlayer2()
+            Log.d("PlayAgain", "Points reset: $points1, $points2")
+            Log.d("PlayAgain", "Deck reset, cards available: ${vm.isDeckEmpty.value}")
+            Log.d("PlayAgain", "Turn reset: Current player = $currentPlayer")
+        }
 
         return binding.root
     }
