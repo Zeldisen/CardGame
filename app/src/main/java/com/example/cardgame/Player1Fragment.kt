@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.ViewModelProvider
 
@@ -46,7 +47,22 @@ class Player1Fragment : Fragment() {
         var isHigherGuess = false
 
 
+        fun checkwinner(){
+            if (vm.isDeckEmpty.value == true) {  // Kontrollera om kortleken är tom
+                val winnerMessage = when {
+                    points > wrongcounter -> "Congrats you quessed mostly correct"
+                    wrongcounter < points -> "you loose!"
+                    else -> ""
+                }
+                Toast.makeText(requireContext(), winnerMessage, Toast.LENGTH_LONG).show()
 
+
+                binding.packBackside.visibility = View.GONE
+
+                // Uppdatera UI
+                //binding.tvPlayerTurn.text = "Game Over! Play again to restart."
+            }
+        }
         fun updateUiForGuess(isHigherGuess: Boolean, currentCard: Int, previusCard: Int) {
             if (isHigherGuess && currentCard > previusCard ||
                 !isHigherGuess && currentCard < previusCard) {
@@ -60,7 +76,12 @@ class Player1Fragment : Fragment() {
             }
 
         }
-
+        vm.isDeckEmpty.observe(viewLifecycleOwner) { isEmpty ->
+            if (isEmpty) {
+                Log.d("CheckWinner", "Deck is empty, calling checkwinner()")
+                checkwinner() // Kallar checkwinner när kortleken är tom
+            }
+        }
         vm.drawRandomCardPlayer1()  // drar ett första slumpmässigt kort
         vm.selectedCard1.observe(viewLifecycleOwner) { selectedCard ->
             // Hämta och visa slumpmässigt kort
@@ -79,13 +100,30 @@ class Player1Fragment : Fragment() {
                 if (previusCard == -1) return@setOnClickListener
                 isHigherGuess = true
                 vm.drawRandomCardPlayer1()
+                checkwinner()
             }
             binding.lowerButton.setOnClickListener {
                 if (previusCard == -1) return@setOnClickListener
                 isHigherGuess = false
                 vm.drawRandomCardPlayer1()
+                checkwinner()
                 }
+        binding.playAgainBtnSingel.setOnClickListener {
+            vm.resetDeck()
+            points=0
+            wrongcounter=0
+            previusCard = -1
+            currentCard = 1
+            binding.tvShowPoints.text = points.toString()
+            binding.tvWrongCounter.text = wrongcounter.toString()
+            binding.higherButton.isEnabled = true
+            binding.lowerButton.isEnabled = true
+            vm.drawRandomCardPlayer1()
+            binding.packBackside.visibility = View.VISIBLE
+            Log.d("PlayAgain", "Points reset: $points")
+            Log.d("PlayAgain", "Deck reset, cards available: ${vm.isDeckEmpty.value}")
 
+        }
 
 
             binding.p1BackBtn.setOnClickListener {

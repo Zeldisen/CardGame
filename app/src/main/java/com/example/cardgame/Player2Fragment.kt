@@ -63,6 +63,8 @@ class Player2Fragment : Fragment() {
                 binding.imageButtonLower.isEnabled = false
                 binding.imageButtonHigher2.isEnabled = false
                 binding.imageButtonLower2.isEnabled = false
+                binding.imageView2.visibility = View.GONE
+                binding.imageView3.visibility = View.GONE
 
                 // Uppdatera UI
                 binding.tvPlayerTurn.text = "Game Over! Play again to restart."
@@ -212,6 +214,8 @@ class Player2Fragment : Fragment() {
             binding.imageButtonLower2.isEnabled = true
             vm.drawRandomCardPlayer1()
             vm.drawRandomCardPlayer2()
+            binding.imageView2.visibility = View.VISIBLE
+            binding.imageView3.visibility = View.VISIBLE
             Log.d("PlayAgain", "Points reset: $points1, $points2")
             Log.d("PlayAgain", "Deck reset, cards available: ${vm.isDeckEmpty.value}")
             Log.d("PlayAgain", "Turn reset: Current player = $currentPlayer")

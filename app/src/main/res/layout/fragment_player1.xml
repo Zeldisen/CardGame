@@ -45,24 +45,14 @@
 
 
 
-    <Button
-        android:id="@+id/guessButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="450dp"
-        android:layout_gravity="center_horizontal"
-        android:text="Guess"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:textColor="@color/forestGreen"
-        android:backgroundTint="@color/lightGreen"/>
+
 
     <Button
         android:id="@+id/p1_back_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="600dp"
-        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="50dp"
         android:text="Go back"
         android:textStyle="bold"
         android:textSize="20sp"
@@ -117,4 +107,16 @@
         android:layout_marginTop="380dp"
         android:layout_marginStart="150dp"
         android:src="@drawable/baseline_arrow_downward_24" />
+
+    <Button
+        android:id="@+id/playAgainBtnSingel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="600dp"
+        android:layout_marginStart="200dp"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textColor="@color/forestGreen"
+        android:backgroundTint="@color/lightGreen"
+        android:text="Play again" />
 </FrameLayout>
