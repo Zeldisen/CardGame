@@ -24,13 +24,20 @@ class GameActivity : AppCompatActivity() {
             insets
         }
         vm = ViewModelProvider(this).get(SharedViewModel::class.java)
-        vm.drawRandomCard()
+        vm.drawRandomCardPlayer1()
+        vm.drawRandomCardPlayer2()
 
         val player1Fragment = Player1Fragment()
+        val player2Fragment = Player2Fragment()
 
         binding.startGameButton.setOnClickListener {
             val transaction = supportFragmentManager.beginTransaction()
             transaction.replace(R.id.gameFrLayout,player1Fragment)
+            transaction.commit()
+        }
+        binding.startGame2btn.setOnClickListener {
+            val transaction = supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.gameFrLayout,player2Fragment)
             transaction.commit()
         }
         binding.buttonBack.setOnClickListener {

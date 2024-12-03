@@ -45,6 +45,8 @@ class Player1Fragment : Fragment() {
         var points = 0
         var isHigherGuess = false
 
+
+
         fun updateUiForGuess(isHigherGuess: Boolean, currentCard: Int, previusCard: Int) {
             if (isHigherGuess && currentCard > previusCard ||
                 !isHigherGuess && currentCard < previusCard) {
@@ -59,8 +61,8 @@ class Player1Fragment : Fragment() {
 
         }
 
-        vm.drawRandomCard()  // drar ett första slumpmässigt kort
-        vm.selectedCard.observe(viewLifecycleOwner) { selectedCard ->
+        vm.drawRandomCardPlayer1()  // drar ett första slumpmässigt kort
+        vm.selectedCard1.observe(viewLifecycleOwner) { selectedCard ->
             // Hämta och visa slumpmässigt kort
             if (selectedCard != null) {
                 binding.showCard.setImageResource(selectedCard.imageResId)
@@ -76,12 +78,12 @@ class Player1Fragment : Fragment() {
             binding.higherButton.setOnClickListener {
                 if (previusCard == -1) return@setOnClickListener
                 isHigherGuess = true
-                vm.drawRandomCard()
+                vm.drawRandomCardPlayer1()
             }
             binding.lowerButton.setOnClickListener {
                 if (previusCard == -1) return@setOnClickListener
                 isHigherGuess = false
-                vm.drawRandomCard()
+                vm.drawRandomCardPlayer1()
                 }
 
 

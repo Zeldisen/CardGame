@@ -6,10 +6,15 @@ import androidx.lifecycle.ViewModel
 
 class SharedViewModel:ViewModel() {
     private val deckInstance = Deck()
-    private val _selectedCard = MutableLiveData<Card?>()
-    val selectedCard: LiveData<Card?> get() = _selectedCard
+    private val _selectedCard1 = MutableLiveData<Card?>()
+    private val _selectedCard2 = MutableLiveData<Card?>()
+    val selectedCard1: LiveData<Card?> get() = _selectedCard1
+    val selectedCard2: LiveData<Card?> get() = _selectedCard2
 
-    fun drawRandomCard(){
-        _selectedCard.value = deckInstance.drawRandomCard()
+    fun drawRandomCardPlayer1(){
+        _selectedCard1.value = deckInstance.drawRandomCard()
+    }
+    fun drawRandomCardPlayer2(){
+        _selectedCard2.value = deckInstance.drawRandomCard()
     }
 }

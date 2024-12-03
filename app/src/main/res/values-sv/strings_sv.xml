@@ -15,4 +15,11 @@
     <string name="start_game">Starta spel för en spelare</string>
     <string name="startgame2">Starta spel för två spelare</string>
     <string name="goback">Tillbaka</string>
+    <string name="_2_player_game">2 Spelare</string>
+    <string name="player_1">Spelare 1</string>
+    <string name="player_2">Spelare 2</string>
+    <string name="points">Spelare 1 Poäng:</string>
+    <string name="player_2_points">Spelare 2 Poäng:</string>
+    <string name="wrong_guess">Fel gissat:</string>
+    <string name="Wrong_guess1">Fel gissat:</string>
 </resources>
