@@ -1,6 +1,7 @@
 package com.example.cardgame
 
 import android.os.Bundle
+import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -10,7 +11,7 @@ import com.example.cardgame.databinding.ActivityGameBinding
 
 
 class GameActivity : AppCompatActivity() {
-    lateinit var vm: SharedViewModel
+    //lateinit var vm: SharedViewModel
     //val bundle = Bundle()
     lateinit var binding: ActivityGameBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,28 +24,8 @@ class GameActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        vm = ViewModelProvider(this).get(SharedViewModel::class.java)
-        vm.drawRandomCardPlayer1()
-        vm.drawRandomCardPlayer2()
-        vm.resetDeck()
-        vm.isDeckEmpty()
 
 
-        val player1Fragment = Player1Fragment()
-        val player2Fragment = Player2Fragment()
 
-        binding.startGameButton.setOnClickListener {
-            val transaction = supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.gameFrLayout,player1Fragment)
-            transaction.commit()
-        }
-        binding.startGame2btn.setOnClickListener {
-            val transaction = supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.gameFrLayout,player2Fragment)
-            transaction.commit()
-        }
-        binding.buttonBack.setOnClickListener {
-            finish()
-        }
     }
 }

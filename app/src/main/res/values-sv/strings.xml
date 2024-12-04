@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pointsp1">Points:</string>
+    <string name="wrong_guessed_times">Wrong Guess:</string>
+    <string name="play_again">Play again</string>
+    <string name="go_back">Go back</string>
+    <string name="one_player_game">One Player Game</string>
+    <string name="highscore">HighScore</string>
+    <string name="HighScores">Highscore</string>
+    <string name="highscorebutton">Highscore</string>
+</resources>

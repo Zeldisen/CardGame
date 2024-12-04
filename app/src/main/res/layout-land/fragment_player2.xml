@@ -8,22 +8,12 @@
     tools:context=".Player2Fragment">
 
 
-    <TextView
-        android:id="@+id/tvPlayer2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="10dp"
-        android:textSize="20sp"
-        android:textColor="@color/lightGreen"
-        android:textStyle="bold"
-        android:text="@string/_2_player_game" />
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="100dp"
         android:layout_height="140dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="50dp"
         android:layout_marginStart="70dp"
         android:src="@drawable/cardsbackside" />
 
@@ -31,31 +21,31 @@
         android:id="@+id/imageView3"
         android:layout_width="100dp"
         android:layout_height="140dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginStart="230dp"
+        android:layout_marginStart="380dp"
+        android:layout_marginTop="50dp"
         android:src="@drawable/cardsbackside" />
 
     <ImageView
         android:id="@+id/showCard1"
         android:layout_width="100dp"
         android:layout_height="140dp"
-        android:layout_marginStart="70dp"
-        android:layout_marginTop="270dp"
+        android:layout_marginStart="180dp"
+        android:layout_marginTop="50dp"
         android:src="@drawable/clover1" />
 
     <ImageView
         android:id="@+id/showCard2"
         android:layout_width="100dp"
         android:layout_height="140dp"
-        android:layout_marginTop="270dp"
-        android:layout_marginStart="230dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="490dp"
         android:src="@drawable/clover1" />
 
     <TextView
         android:id="@+id/player1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="20dp"
         android:layout_marginStart="90dp"
         android:textSize="18sp"
         android:textColor="@color/lightGreen"
@@ -65,8 +55,8 @@
         android:id="@+id/player2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
-        android:layout_marginStart="250dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="400dp"
         android:textSize="18sp"
         android:textColor="@color/lightGreen"
         android:text="@string/player_2" />
@@ -75,7 +65,7 @@
         android:id="@+id/imageButtonHigher"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="430dp"
+        android:layout_marginTop="200dp"
         android:layout_marginStart="125dp"
         android:src="@drawable/baseline_arrow_upward_24" />
 
@@ -83,7 +73,7 @@
         android:id="@+id/imageButtonLower"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="430dp"
+        android:layout_marginTop="200dp"
         android:layout_marginStart="70dp"
         android:src="@drawable/baseline_arrow_downward_24" />
 
@@ -91,24 +81,24 @@
         android:id="@+id/imageButtonHigher2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="430dp"
-        android:layout_marginStart="285dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginStart="435dp"
         android:src="@drawable/baseline_arrow_upward_24" />
 
     <ImageButton
         android:id="@+id/imageButtonLower2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="430dp"
-        android:layout_marginStart="230dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginStart="380dp"
         android:src="@drawable/baseline_arrow_downward_24" />
 
     <TextView
         android:id="@+id/p1Points"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="480dp"
-        android:layout_marginStart="10dp"
+        android:layout_marginTop="250dp"
+        android:layout_marginStart="70dp"
         android:textSize="18sp"
         android:textColor="@color/lightGreen"
         android:text="@string/points" />
@@ -117,8 +107,8 @@
         android:id="@+id/p1Wrong"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="510dp"
-        android:layout_marginStart="10dp"
+        android:layout_marginTop="280dp"
+        android:layout_marginStart="70dp"
         android:textSize="18sp"
         android:textColor="@color/lightGreen"
         android:text="@string/Wrong_guess1" />
@@ -127,8 +117,8 @@
         android:id="@+id/p2Points"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="480dp"
-        android:layout_marginStart="230dp"
+        android:layout_marginTop="250dp"
+        android:layout_marginStart="380dp"
         android:textSize="18sp"
         android:textColor="@color/lightGreen"
         android:text="@string/player_2_points" />
@@ -137,38 +127,38 @@
         android:id="@+id/p2Wrong"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="510dp"
-        android:layout_marginStart="230dp"
+        android:layout_marginTop="280dp"
+        android:layout_marginStart="380dp"
         android:textSize="18sp"
         android:textColor="@color/lightGreen"
         android:text="@string/wrong_guess" />
 
     <Button
         android:id="@+id/player2BackBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="600dp"
-        android:layout_marginStart="50dp"
+        android:layout_width="18mm"
+        android:layout_height="7mm"
+        android:layout_marginStart="600dp"
+        android:layout_marginTop="280dp"
         android:backgroundTint="@color/lightGreen"
-        android:textColor="@color/forestGreen"
-        android:text="Back" />
+        android:text="Back"
+        android:textColor="@color/forestGreen" />
 
     <Button
         android:id="@+id/playAgainBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="600dp"
-        android:layout_marginStart="220dp"
+        android:layout_width="18mm"
+        android:layout_height="7mm"
+        android:layout_marginStart="600dp"
+        android:layout_marginTop="240dp"
         android:backgroundTint="@color/lightGreen"
-        android:textColor="@color/forestGreen"
-        android:text="Play Again" />
+        android:text="Play Again"
+        android:textColor="@color/forestGreen" />
 
     <TextView
         android:id="@+id/p1ShowPoints"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="480dp"
-        android:layout_marginStart="150dp"
+        android:layout_marginTop="250dp"
+        android:layout_marginStart="210dp"
         android:textSize="18sp"
         android:textColor="@color/lightGreen"
         android:text="" />
@@ -177,8 +167,8 @@
         android:id="@+id/p1WrongGuess"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="510dp"
-        android:layout_marginStart="130dp"
+        android:layout_marginTop="280dp"
+        android:layout_marginStart="210dp"
         android:textSize="18sp"
         android:textColor="@color/lightGreen"
         android:text="" />
@@ -187,8 +177,8 @@
         android:id="@+id/p2ShowPoints"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="480dp"
-        android:layout_marginStart="370dp"
+        android:layout_marginTop="250dp"
+        android:layout_marginStart="520dp"
         android:textSize="18sp"
         android:textColor="@color/lightGreen"
         android:text="" />
@@ -197,8 +187,8 @@
         android:id="@+id/p2WrongGuess"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="510dp"
-        android:layout_marginStart="350dp"
+        android:layout_marginTop="280dp"
+        android:layout_marginStart="520dp"
         android:textSize="18sp"
         android:textColor="@color/lightGreen"
         android:text="" />
@@ -207,10 +197,10 @@
         android:id="@+id/tvPlayerTurn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="550dp"
-        android:textSize="18sp"
-        android:textStyle="bold"
+        android:layout_marginStart="250dp"
+        android:layout_marginTop="300dp"
+        android:text=""
         android:textColor="@color/white"
-        android:text="" />
+        android:textSize="18sp"
+        android:textStyle="italic" />
 </FrameLayout>

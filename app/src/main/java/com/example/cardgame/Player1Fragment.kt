@@ -30,7 +30,41 @@ class Player1Fragment : Fragment() {
     private var _binding: FragmentPlayer1Binding? = null
     private val binding get() = _binding!!
     lateinit var vm: SharedViewModel
+    private var points:Int = 0
+    private var wrongcounter:Int = 0
+    private var previusCard:Int = -1
+    private var currentCard:Int = 1
+    private var isHigherGuess:Boolean = false
 
+    /**
+     * saving value in variable when phone rotate it does not disappear, this is instead of using VIewModel
+     */
+    @Override
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt("points",points)
+        outState.putInt("wrongcounter",wrongcounter)
+        outState.putInt("previusCard",previusCard)
+        outState.putInt("currentCard",currentCard)
+        outState.putBoolean("isHigherGuess",isHigherGuess)
+        Log.d("MyFragment", "State saved!")
+    }
+
+    /**
+     * get the value in variable when the phone rotate, this is instead of using VIewModel
+     */
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        if(savedInstanceState != null){
+            points = savedInstanceState.getInt("points")
+            wrongcounter = savedInstanceState.getInt("wrongcounter")
+            previusCard = savedInstanceState.getInt("previusCard")
+            currentCard = savedInstanceState.getInt("currentCard")
+            isHigherGuess = savedInstanceState.getBoolean("isHigherGuess")
+            Log.d("MyFragment", "State restored!")
+        }
+
+    }
 
     override fun onCreateView(
 
@@ -39,12 +73,9 @@ class Player1Fragment : Fragment() {
     ): View? {
         _binding = FragmentPlayer1Binding.inflate(inflater, container, false)
         vm = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
+        binding.tvShowPoints.text = points.toString()   // updates so it the value does not disappear when phone rotate
+        binding.tvWrongCounter.text = wrongcounter.toString()
 
-        var previusCard = -1
-        var currentCard = 1
-        var wrongcounter = 0
-        var points = 0
-        var isHigherGuess = false
 
 
         fun checkwinner(){
@@ -127,7 +158,7 @@ class Player1Fragment : Fragment() {
 
 
             binding.p1BackBtn.setOnClickListener {
-                val intent = Intent(requireActivity(), GameActivity::class.java)
+                val intent = Intent(requireActivity(), GuessCardActivity::class.java)
                 startActivity(intent)
             }
 

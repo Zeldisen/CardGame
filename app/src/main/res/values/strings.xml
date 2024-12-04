@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">CardGame</string>
     <string name="welcome_to_cardgame">Welcome to CardGame!</string>
-    <string name="guesscardgame">Guess Card Game</string>
+    <string name="guesscardgame">Play Game</string>
     <string name="quit">Quit</string>
     <string name="guess_card_game">Guess Card Game</string>
     <string name="_1_players">1 Players</string>
@@ -21,5 +21,13 @@
     <string name="player_2_points">Player 2 Points:</string>
     <string name="wrong_guess">Wrong Guess:</string>
     <string name="Wrong_guess1">Wrong Guess:</string>
+    <string name="pointsp1">Points:</string>
+    <string name="wrong_guessed_times">Wrong Guess:</string>
+    <string name="play_again">Play again</string>
+    <string name="go_back">Go back</string>
+    <string name="one_player_game">One Player Game</string>
+    <string name="highscore">HighScore</string>
+    <string name="HighScores">Highscore</string>
+    <string name="highscorebutton">Highscore</string>
 
 </resources>

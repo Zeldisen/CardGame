@@ -5,71 +5,35 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/forestGreen"
+    android:background="@drawable/backgoundie"
     tools:context=".GameActivity">
 
-    <FrameLayout
-        android:id="@+id/gameFrLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="409dp"
+        android:layout_height="729dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
+        android:layout_marginTop="100dp"
         android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
+        android:layout_marginBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/item_list" />
 
-        <Button
-            android:id="@+id/startGameButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="120dp"
-            android:backgroundTint="@color/forestGreen"
-            android:text="@string/start_game"
-            android:textColor="@color/lightGreen"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/buttonBack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="600dp"
-            android:backgroundTint="@color/lightGreen"
-            android:text="@string/goback"
-            android:textColor="@color/forestGreen"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="113dp"
-            android:layout_height="137dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="300dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/startGameButton"
-            app:srcCompat="@drawable/cardsbackside" />
-
-        <Button
-            android:id="@+id/start_game2btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="180dp"
-            android:textSize="20sp"
-            android:layout_gravity="center_horizontal"
-            android:backgroundTint="@color/forestGreen"
-            android:textColor="@color/lightGreen"
-            android:text="@string/startgame2" />
-
-
-    </FrameLayout>
+    <TextView
+        android:id="@+id/tv_HighScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:text="@string/highscore"
+        android:textColor="@color/lightGreen"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

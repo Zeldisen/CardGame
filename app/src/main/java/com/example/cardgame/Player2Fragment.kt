@@ -1,5 +1,6 @@
 package com.example.cardgame
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -21,11 +22,30 @@ class Player2Fragment : Fragment() {
     private var _binding: FragmentPlayer2Binding? = null
     private val binding get() = _binding!!
     lateinit var vm: SharedViewModel
+    private var points1:Int = 0
+    private var points2:Int = 0
+    private var wrongcounter1:Int = 0
+    private var wrongcounter2:Int = 0
+    private val player1Turn:String = "Player 1 turn"
+    private val player2Turn:String = "Player 2 turn"
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt("points1",points1)
+        outState.putInt("points2",points2)
+        outState.putInt("wrongcounter1",wrongcounter1)
+        outState.putInt("wrongcounter2",wrongcounter2)
+        outState.putString("player1Turn",player1Turn)
+        outState.putString("player2Turn",player2Turn)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-
+        if(savedInstanceState != null){
+            points1 = savedInstanceState.getInt("points1")
+            points2 = savedInstanceState.getInt("points2")
+            wrongcounter1 = savedInstanceState.getInt("wrongcounter1")
+            wrongcounter2 = savedInstanceState.getInt("wrongcounter2")
         }
     }
 
@@ -35,17 +55,16 @@ class Player2Fragment : Fragment() {
     ): View? {
         _binding = FragmentPlayer2Binding.inflate(inflater,container,false)
         vm = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
+        binding.p1ShowPoints.text = points1.toString()
+        binding.p1WrongGuess.text = wrongcounter1.toString()
+        binding.p2ShowPoints.text = points2.toString()
+        binding.p2WrongGuess.text = wrongcounter2.toString()
         var previusCard1 = -1
         var currentCard1 = 1
         var previusCard2 = -1
         var currentCard2 = 1
-        var wrongcounter1 = 0
-        var wrongcounter2 = 0
         var currentPlayer = 1
-        val player1Turn = "Player 1 turn"
-        val player2Turn = "Player 2 turn"
-        var points1 = 0
-        var points2 = 0
+
         var isHigherGuess = false
         var isHigherGuess2 = false
 
@@ -189,6 +208,10 @@ class Player2Fragment : Fragment() {
             checkwinner()
 
            // Toast.makeText(requireContext(), "Player 1 Turn", Toast.LENGTH_SHORT).show()
+        }
+        binding.player2BackBtn.setOnClickListener {
+            val intent = Intent(requireActivity(), GuessCardActivity::class.java)
+            startActivity(intent)
         }
         binding.playAgainBtn.setOnClickListener {
             vm.resetDeck()
