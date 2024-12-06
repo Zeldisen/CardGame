@@ -22,13 +22,23 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
+        val rulesFragment = RulesFragment()
         binding.button2.setOnClickListener {   // hamnar i onStart() och onStop() och kan om användaren vill återuppta hamna i onRestart()
             moveTaskToBack(true) // låter appen ligga i bakgrunden efter att den "stängs ner" istället för finish() eller
         }                                   // finischAffinity()
         binding.button.setOnClickListener {
             val intent = Intent(this,GuessCardActivity::class.java)
             startActivity(intent)
+
         }
+
+        binding.btnRules?.setOnClickListener {
+            val transaction = supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.main,rulesFragment)
+            transaction.commit()
+            binding.btnRules.isEnabled = false
+            binding.button.isEnabled = false
+        }
+
     }
 }

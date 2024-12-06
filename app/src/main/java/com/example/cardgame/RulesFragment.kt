@@ -42,7 +42,7 @@ class RulesFragment : Fragment() {
 
 
         binding.backbtn.setOnClickListener {
-            val intent = Intent(requireActivity(),GuessCardActivity::class.java)
+            val intent = Intent(requireActivity(),MainActivity::class.java)
             startActivity(intent)
         }
         return binding.root

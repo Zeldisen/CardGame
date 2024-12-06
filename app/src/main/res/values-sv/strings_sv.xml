@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">CardGame</string>
     <string name="welcome_to_cardgame">Välkommen till KortSpel!</string>
-    <string name="guesscardgame">Gissa Kortet</string>
+    <string name="guesscardgame">Spela</string>
     <string name="quit">Avsluta</string>
     <string name="guess_card_game">Gissa kortet</string>
     <string name="_1_players">1 Spelare</string>
