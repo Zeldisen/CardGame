@@ -110,5 +110,5 @@
         android:backgroundTint="@color/lightGreen"
         android:text="@string/play_againSingel"
         android:textColor="@color/forestGreen"
-        android:textSize="20sp" />
+        />
 </FrameLayout>

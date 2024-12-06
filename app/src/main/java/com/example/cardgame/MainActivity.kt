@@ -23,8 +23,8 @@ class MainActivity : AppCompatActivity() {
             insets
         }
         val rulesFragment = RulesFragment()
-        binding.button2.setOnClickListener {   // hamnar i onStart() och onStop() och kan om användaren vill återuppta hamna i onRestart()
-            moveTaskToBack(true) // låter appen ligga i bakgrunden efter att den "stängs ner" istället för finish() eller
+        binding.button2.setOnClickListener {   // lands in onStart() and onStop(),if user want to play again it lands in onRestart()
+            moveTaskToBack(true) // the app lays in the background after pressed on quit "shuts down" instead of finish() or
         }                                   // finischAffinity()
         binding.button.setOnClickListener {
             val intent = Intent(this,GuessCardActivity::class.java)

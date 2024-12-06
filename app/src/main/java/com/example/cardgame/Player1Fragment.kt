@@ -13,17 +13,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.ViewModelProvider
-
-
 import com.example.cardgame.databinding.FragmentPlayer1Binding
 
-
-
-/**
- * A simple [Fragment] subclass.
- * Use the [Player1Fragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class Player1Fragment : Fragment() {
 
 
