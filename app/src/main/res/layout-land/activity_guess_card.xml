@@ -45,29 +45,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnPlayer1" />
 
+
     <Button
-        android:id="@+id/btn_Rules"
+        android:id="@+id/btn_Highscore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/rules"
+        android:layout_marginTop="20dp"
+        android:text="@string/highscorebutton"
         android:backgroundTint="@color/lightGreen"
         android:textColor="@color/forestGreen"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnPlayer2" />
-
     <Button
         android:id="@+id/btnQuit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:text="@string/quit2"
         android:backgroundTint="@color/lightGreen"
         android:textColor="@color/forestGreen"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_Rules" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_Highscore" />
 
     <FrameLayout
         android:id="@+id/fr_container"
@@ -77,10 +77,12 @@
         android:layout_marginEnd="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="1.0">
+
+
 
     </FrameLayout>
 

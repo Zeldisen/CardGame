@@ -36,20 +36,40 @@ class GuessCardActivity : AppCompatActivity() {
             val transaction = supportFragmentManager.beginTransaction()
             transaction.replace(R.id.fr_container,player1Fragment)
             transaction.commit()
+            // putting buttons false so user do not by mistake presses on this buttons when game started in Fragments
+            // do this on every buttons
+            binding.btnPlayer1.isEnabled = false
+            binding.btnPlayer2.isEnabled = false
+            binding.btnHighscore.isEnabled = false
+            binding.btnQuit.isEnabled = false
         }
 
         binding.btnPlayer2.setOnClickListener {
             val transaction = supportFragmentManager.beginTransaction()
             transaction.replace(R.id.fr_container,player2Fragment)
             transaction.commit()
+            binding.btnPlayer1.isEnabled = false
+            binding.btnPlayer2.isEnabled = false
+            binding.btnHighscore.isEnabled = false
+            binding.btnQuit.isEnabled = false
+
         }
+
         binding.btnHighscore?.setOnClickListener {
-            val intent = Intent(this,GameActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, GameActivity::class.java))
+            binding.btnPlayer1.isEnabled = false
+            binding.btnQuit.isEnabled = false
+            binding.btnHighscore.isEnabled = false
+            binding.btnPlayer2.isEnabled = false
         }
+
         binding.btnQuit.setOnClickListener {
             val intent = Intent(this,MainActivity::class.java)
             startActivity(intent)
+            binding.btnPlayer1.isEnabled = false
+            binding.btnQuit.isEnabled = false
+            binding.btnHighscore.isEnabled = false
+            binding.btnPlayer2.isEnabled = false
         }
 
     }

@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="One Player Game"
+        android:text="@string/singelPlayer"
         android:textColor="@color/lightGreen"
         android:textStyle="bold"
         android:textSize="20sp"
@@ -49,8 +49,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="600dp"
         android:layout_marginStart="50dp"
-        android:text="Go back"
-        android:textStyle="bold"
+        android:text="@string/goingback"
         android:textSize="20sp"
         android:textColor="@color/forestGreen"
         android:backgroundTint="@color/lightGreen"/>
@@ -61,7 +60,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="120dp"
         android:layout_marginTop="500dp"
-        android:text="Points:"
+        android:text="@string/pointsforsingel"
         android:textColor="@color/lightGreen"
         android:textSize="20sp"/>
 
@@ -83,7 +82,7 @@
         android:layout_marginTop="540dp"
         android:textColor="@color/lightGreen"
         android:textSize="20sp"
-        android:text="Wrong guessed times:" />
+        android:text="@string/Singelwrongguessd" />
 
     <TextView
         android:id="@+id/tvWrongCounter"
@@ -109,9 +108,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="600dp"
         android:layout_marginStart="200dp"
-        android:textStyle="bold"
         android:textSize="20sp"
         android:textColor="@color/forestGreen"
         android:backgroundTint="@color/lightGreen"
-        android:text="Play again" />
+        android:text="@string/play_againSingel" />
 </FrameLayout>

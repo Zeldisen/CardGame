@@ -29,12 +29,15 @@ class MainActivity : AppCompatActivity() {
         binding.button.setOnClickListener {
             val intent = Intent(this,GuessCardActivity::class.java)
             startActivity(intent)
+
         }
 
         binding.btnRules?.setOnClickListener {
             val transaction = supportFragmentManager.beginTransaction()
             transaction.replace(R.id.main,rulesFragment)
             transaction.commit()
+            binding.btnRules.isEnabled = false
+            binding.button.isEnabled = false
         }
 
     }

@@ -29,5 +29,14 @@
     <string name="highscore">HighScore</string>
     <string name="HighScores">Highscore</string>
     <string name="highscorebutton">Highscore</string>
+    <string name="Hback">Back</string>
+    <string name="reset_scores">Reset scores</string>
+    <string name="singelPlayer">One Player Game</string>
+    <string name="goingback">Go back</string>
+    <string name="pointsforsingel">Points:</string>
+    <string name="Singelwrongguessd">Wrong guessed times:</string>
+    <string name="play_againSingel">Play again</string>
+    <string name="back2player">Back</string>
+    <string name="play_again2player">Play Again</string>
 
 </resources>

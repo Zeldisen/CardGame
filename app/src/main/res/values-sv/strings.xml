@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="pointsp1">Points:</string>
-    <string name="wrong_guessed_times">Wrong Guess:</string>
-    <string name="play_again">Play again</string>
-    <string name="go_back">Go back</string>
-    <string name="one_player_game">One Player Game</string>
+    <string name="pointsp1">Poäng:</string>
+    <string name="wrong_guessed_times">Fel gissat:</string>
+    <string name="play_again">Spela igen</string>
+    <string name="go_back">Tillbaka</string>
+    <string name="one_player_game">Singel spel</string>
     <string name="highscore">HighScore</string>
     <string name="HighScores">Highscore</string>
     <string name="highscorebutton">Highscore</string>
+    <string name="Hback">Tillbaka</string>
+    <string name="reset_scores">Nollställ poäng</string>
+    <string name="singelPlayer">Singel spelare</string>
+    <string name="goingback">Tillbaka</string>
+    <string name="pointsforsingel">Poäng:</string>
+    <string name="play_againSingel">Spela igen</string>
+    <string name="back2player">Tillbaka</string>
+    <string name="play_again2player">Spela igen</string>
+    <string name="Singelwrongguessd">Fel gissat:</string>
 </resources>

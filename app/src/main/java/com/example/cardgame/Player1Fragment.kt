@@ -79,7 +79,7 @@ class Player1Fragment : Fragment() {
 
 
         fun checkwinner(){
-            if (vm.isDeckEmpty.value == true) {  // Kontrollera om kortleken är tom
+            if (vm.isDeckEmpty.value == true) {  // checks i deck is empty. if it is empty a messege prints in toast
                 val winnerMessage = when {
                     points > wrongcounter -> "Congrats you quessed mostly correct"
                     wrongcounter < points -> "you loose!"
@@ -87,11 +87,8 @@ class Player1Fragment : Fragment() {
                 }
                 Toast.makeText(requireContext(), winnerMessage, Toast.LENGTH_LONG).show()
 
+                binding.packBackside.visibility = View.GONE // makes backside card go invisible  when deck is empty
 
-                binding.packBackside.visibility = View.GONE
-
-                // Uppdatera UI
-                //binding.tvPlayerTurn.text = "Game Over! Play again to restart."
             }
         }
         fun updateUiForGuess(isHigherGuess: Boolean, currentCard: Int, previusCard: Int) {
@@ -110,16 +107,16 @@ class Player1Fragment : Fragment() {
         vm.isDeckEmpty.observe(viewLifecycleOwner) { isEmpty ->
             if (isEmpty) {
                 Log.d("CheckWinner", "Deck is empty, calling checkwinner()")
-                checkwinner() // Kallar checkwinner när kortleken är tom
+                checkwinner() // calls checkwinner if deck is empty
             }
         }
-        vm.drawRandomCardPlayer1()  // drar ett första slumpmässigt kort
+        vm.drawRandomCardPlayer1()  // draws a first card when game beginns
         vm.selectedCard1.observe(viewLifecycleOwner) { selectedCard ->
-            // Hämta och visa slumpmässigt kort
+            // get and shows first card if selected card is not null
             if (selectedCard != null) {
                 binding.showCard.setImageResource(selectedCard.imageResId)
                 currentCard = selectedCard.value
-                if (previusCard != -1) { // Kontrollera bara om det redan finns ett tidigare kort
+                if (previusCard != -1) {
                     updateUiForGuess(isHigherGuess, currentCard, previusCard)
                 }
                 previusCard = currentCard

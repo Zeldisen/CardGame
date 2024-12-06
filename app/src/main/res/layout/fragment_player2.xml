@@ -151,7 +151,7 @@
         android:layout_marginStart="50dp"
         android:backgroundTint="@color/lightGreen"
         android:textColor="@color/forestGreen"
-        android:text="Back" />
+        android:text="@string/back2player" />
 
     <Button
         android:id="@+id/playAgainBtn"
@@ -161,7 +161,7 @@
         android:layout_marginStart="220dp"
         android:backgroundTint="@color/lightGreen"
         android:textColor="@color/forestGreen"
-        android:text="Play Again" />
+        android:text="@string/play_again2player" />
 
     <TextView
         android:id="@+id/p1ShowPoints"
