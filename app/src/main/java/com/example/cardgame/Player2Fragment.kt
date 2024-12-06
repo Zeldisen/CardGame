@@ -11,12 +11,6 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.example.cardgame.databinding.FragmentPlayer2Binding
 
-
-/**
- * A simple [Fragment] subclass.
- * Use the [Player2Fragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class Player2Fragment : Fragment() {
 
     private var _binding: FragmentPlayer2Binding? = null
